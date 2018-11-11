@@ -16,7 +16,8 @@ GPIO.setup(22,GPIO.OUT)
 GPIO.setup(24,GPIO.OUT)
 
 # just turn white light on
-GPIO.output(17,GPIO.HIGH), GPIO.output(22,GPIO.HIGH), GPIO.output(24,GPIO.HIGH)
+def turnWhiteLightOn():
+    GPIO.output(17,GPIO.HIGH), GPIO.output(22,GPIO.HIGH), GPIO.output(24,GPIO.HIGH)
 
 ## here starts the sound part !!
 
@@ -45,6 +46,7 @@ def callback(pin):
                 time.sleep(.5)
                 GPIO.output(17,GPIO.LOW)
                 time.sleep(.5)
+            turnWhiteLightOn()
 
 print "second white light"
 # just turn white light on
