@@ -17,14 +17,14 @@ def menu():
         answer = int(raw_input("Press 1, 2, 3 or 4 and hit ENTER: "))
 
     if answer == 1:
-        os.system("coware.py")
+        os.system("python coware.py")
         menu()
     elif answer == 2:
-        os.system("coware.py")
+        os.system("python cowareV2.py")
         print "2"
         menu()
     elif answer == 3:
-        os.system("fading.py")
+        os.system("python fading.py")
         print "2"
         menu()
 
