@@ -5,6 +5,7 @@
 import RPi.GPIO as GPIO
 import time
 from coware import lightCheck
+import os
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -15,45 +16,13 @@ GPIO.setup(22,GPIO.OUT)
 # blue light
 GPIO.setup(24,GPIO.OUT)
 
-def turn_light_on(color):
-    if color == "g":
-        print "Green LED on"
-        GPIO.output(22,GPIO.HIGH)
+# define white light
+whiteOn =     GPIO.output(17,GPIO.HIGH), GPIO.output(22,GPIO.HIGH), GPIO.output(24,GPIO.HIGH)
+whiteOff = GPIO.output(17,GPIO.LOW), GPIO.output(22,GPIO.LOW), GPIO.output(24,GPIO.LOW)
+# just turn white light on
+os.system("")
 
-light_status = 0
-
-def turn_light_off(color):
-    if color == "g":
-        print "Green LED off"
-        GPIO.output(22,GPIO.LOW)
-
-def start(light_status):
-    if light_status == 0:
-        a = raw_input("Do yu want to turn ligh on? y/n: ")
-        if a == "y":
-            turn_light_on()
-            # return 1
-            light_status = 1
-
-        if light_status == 1:
-            a = raw_input("Do you want to turn light off? y/n: ")
-            if a == "y":
-                turn_light_off()
-                # return 0
-                light_status = 0
-
-
-
-# start(light_status)
-#
-# while True:
-#     db = 0
-
-turn_light_on("g")
-time.sleep(3)
-turn_light_off("g")
-
-# here starts the sound part
+## here starts the sound part
 #GPIO SETUP
 channel = 4
 GPIO.setmode(GPIO.BCM)
@@ -61,7 +30,7 @@ GPIO.setup(channel, GPIO.IN)
 
 def callback(channel):
 	if GPIO.input(channel):
-		print "loud Sound Detected!"
+		print "chanell"
 		GPIO.output(17,GPIO.LOW)
 		GPIO.output(22,GPIO.HIGH)
 	else:
