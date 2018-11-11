@@ -29,17 +29,17 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
 
 def callback(channel):
-	if GPIO.input(channel):
-		print "It's gettign to noisy!"
+    if GPIO.input(channel):
+        print "It's gettign to noisy!"
         # white light goes off
         GPIO.output(17,GPIO.LOW), GPIO.output(22,GPIO.LOW), GPIO.output(24,GPIO.LOW)
         #yellow light light up
-		os.system("pigs p 17 255")
+        os.system("pigs p 17 255")
         os.system("pigs p 22 80")
         time.sleep(5)
         print("Way to loud!")
         # turn yellow light off
-		os.system("pigs p 17 0")
+        os.system("pigs p 17 0")
         os.system("pigs p 22 0")
         for _ in range(5):
                 GPIO.output(22,GPIO.HIGH)
