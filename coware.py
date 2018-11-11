@@ -29,7 +29,6 @@ def lightCheck():
     GPIO.output(24,GPIO.LOW)
 
 def menu():
-
     answer = 0
 
     print "1. Sound-Sensor-Version"
@@ -48,6 +47,8 @@ def menu():
         os.system("python fading.py")
         menu()
     elif answer == 3:
+        return
+
 
 lightCheck()
 menu()
