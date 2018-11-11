@@ -1,7 +1,7 @@
-#!/usr/bin/env python2.7
+ #!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 
-
+import os
 import RPi.GPIO as GPIO
 import time
 
@@ -14,67 +14,41 @@ GPIO.setup(22,GPIO.OUT)
 # blue light
 GPIO.setup(24,GPIO.OUT)
 
-def turn_light_on(color):
-    if color == "g":
-        print "Green LED on"
-        GPIO.output(22,GPIO.HIGH)
+def lightCheck():
+    print"GREEN Light"
+    GPIO.output(17,GPIO.HIGH)
+    GPIO.output(17,GPIO.LOW)
+    print"RED Light"
+    GPIO.output(22,GPIO.HIGH)
+    GPIO.output(22,GPIO.LOW)
+    print"BLUE Light"
+    GPIO.output(24,GPIO.HIGH)
+    GPIO.output(24,GPIO.LOW)
 
-light_status = 0
+def menu():
+    answer = 0
 
-def turn_light_off(color):
-    if color == "g":
-        print "Green LED off"
-        GPIO.output(22,GPIO.LOW)
+    print "1. Sound-Sensor-Version"
+    print "2. Szenario-Version"
+    print "3. Random input-Version"
+    print "4. Exit\n"
 
-def start(light_status):
-    if light_status == 0:
-        a = raw_input("Do yu want to turn ligh on? y/n: ")
-        if a == "y":
-            turn_light_on()
-            # return 1
-            light_status = 1
+    options = [1,2,3,4]
 
-        if light_status == 1:
-            a = raw_input("Do you want to turn light off? y/n: ")
-            if a == "y":
-                turn_light_off()
-                # return 0
-                light_status = 0
-                
-               
-               
-# start(light_status)
-#
-# while True:
-#     db = 0
+    while answer not in options:
+        answer = int(raw_input("Press 1, 2, 3 or 4 and hit ENTER: "))
 
-turn_light_on("g")
-time.sleep(3)
-turn_light_off("g")
+    if answer == 1:
+        os.system("python coware.py")
+        menu()
+    elif answer == 2:
+        os.system("python cowareV2.py")
+        print "2"
+        menu()
+    elif answer == 3:
+        os.system("python fading.py")
+        print "2"
+        menu()
 
-# here starts the sound part
-#GPIO SETUP
-channel = 4
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(channel, GPIO.IN)
-
-def callback(channel):
-	if GPIO.input(channel):
-		print "loud Sound Detected!"
-		GPIO.output(17,GPIO.LOW)
-		GPIO.output(22,GPIO.HIGH)
-	else:
-		print "medium Sound Detected!2"
-		GPIO.output(22,GPIO.LOW)
-		GPIO.output(17,GPIO.HIGH)
-		
-
-GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=100) # let us know when the pin goes High or LOW
-GPIO.add_event_callback(channel, callback) # assign function to GPIO PIN, Run function on change
-
-# infinite loop
-while True:
-	time.sleep(1)
-
-
-
+# menu()
+lightCheck()
