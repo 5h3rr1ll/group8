@@ -17,12 +17,15 @@ GPIO.setup(24,GPIO.OUT)
 def lightCheck():
     print"GREEN Light"
     GPIO.output(17,GPIO.HIGH)
+    time.sleep(1)
     GPIO.output(17,GPIO.LOW)
     print"RED Light"
     GPIO.output(22,GPIO.HIGH)
+    time.sleep(1)
     GPIO.output(22,GPIO.LOW)
     print"BLUE Light"
     GPIO.output(24,GPIO.HIGH)
+    time.sleep(1)
     GPIO.output(24,GPIO.LOW)
 
 def menu():
