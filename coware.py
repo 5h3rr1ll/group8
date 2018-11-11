@@ -17,28 +17,28 @@ GPIO.setup(24,GPIO.OUT)
 def lightCheck():
     print"GREEN Light"
     GPIO.output(17,GPIO.HIGH)
-    time.sleep(1)
+    time.sleep(.5)
     GPIO.output(17,GPIO.LOW)
     print"RED Light"
     GPIO.output(22,GPIO.HIGH)
-    time.sleep(1)
+    time.sleep(.5)
     GPIO.output(22,GPIO.LOW)
     print"BLUE Light"
     GPIO.output(24,GPIO.HIGH)
-    time.sleep(1)
+    time.sleep(.5)
     GPIO.output(24,GPIO.LOW)
     print"WHITE Light"
     GPIO.output(17,GPIO.HIGH)
     GPIO.output(22,GPIO.HIGH)
     GPIO.output(24,GPIO.HIGH)
-    time.sleep(1)
+    time.sleep(.5)
     GPIO.output(17,GPIO.LOW)
     GPIO.output(22,GPIO.LOW)
     GPIO.output(24,GPIO.LOW)
     print"YELLOW Light"
     os.system("pigs p 17 255")
     os.system("pigs p 22 80")
-    time.sleep(1)
+    time.sleep(.5)
     os.system("pigs p 17 0")
     os.system("pigs p 22 0")
 
@@ -68,5 +68,5 @@ def menu():
         print "2"
         menu()
 
-# menu()
 lightCheck()
+menu()
