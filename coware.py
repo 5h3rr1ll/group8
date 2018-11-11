@@ -35,6 +35,13 @@ def lightCheck():
     GPIO.output(17,GPIO.LOW)
     GPIO.output(22,GPIO.LOW)
     GPIO.output(24,GPIO.LOW)
+    print"YELLOW Light"
+    os.system("pigs p 17 255")
+    os.system("pigs p 22 80")
+    time.sleep(1)
+    os.system("pigs p 17 0")
+    os.system("pigs p 22 0")
+
 
 def menu():
     answer = 0
