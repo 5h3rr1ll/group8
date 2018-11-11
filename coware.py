@@ -48,8 +48,6 @@ def menu():
         os.system("python fading.py")
         menu()
     elif answer == 3:
-        print "2"
-        menu()
 
 lightCheck()
 menu()
