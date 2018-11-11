@@ -4,6 +4,9 @@
 
 import RPi.GPIO as GPIO
 import time
+from coware import lightCheck
+
+lightCheck()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -40,9 +43,9 @@ def start(light_status):
                 turn_light_off()
                 # return 0
                 light_status = 0
-                
-               
-               
+
+
+
 # start(light_status)
 #
 # while True:
@@ -67,7 +70,7 @@ def callback(channel):
 		print "medium Sound Detected!2"
 		GPIO.output(22,GPIO.LOW)
 		GPIO.output(17,GPIO.HIGH)
-		
+
 
 GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=100) # let us know when the pin goes High or LOW
 GPIO.add_event_callback(channel, callback) # assign function to GPIO PIN, Run function on change
@@ -75,6 +78,3 @@ GPIO.add_event_callback(channel, callback) # assign function to GPIO PIN, Run fu
 # infinite loop
 while True:
 	time.sleep(1)
-
-
-

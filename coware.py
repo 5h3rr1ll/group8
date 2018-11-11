@@ -42,8 +42,8 @@ def lightCheck():
     os.system("pigs p 17 0")
     os.system("pigs p 22 0")
 
-
 def menu():
+
     answer = 0
 
     print "1. Sound-Sensor-Version"
