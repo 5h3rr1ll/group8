@@ -27,6 +27,14 @@ def lightCheck():
     GPIO.output(24,GPIO.HIGH)
     time.sleep(1)
     GPIO.output(24,GPIO.LOW)
+    print"WHITE Light"
+    GPIO.output(17,GPIO.HIGH)
+    GPIO.output(22,GPIO.HIGH)
+    GPIO.output(24,GPIO.HIGH)
+    time.sleep(1)
+    GPIO.output(17,GPIO.LOW)
+    GPIO.output(22,GPIO.LOW)
+    GPIO.output(24,GPIO.LOW)
 
 def menu():
     answer = 0
