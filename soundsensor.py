@@ -4,7 +4,6 @@
 
 import RPi.GPIO as GPIO
 import time
-from coware import lightCheck
 import os
 
 GPIO.setmode(GPIO.BCM)
@@ -16,9 +15,8 @@ GPIO.setup(22,GPIO.OUT)
 # blue light
 GPIO.setup(24,GPIO.OUT)
 
-# define white light
+# just turn white light on
 GPIO.output(17,GPIO.HIGH), GPIO.output(22,GPIO.HIGH), GPIO.output(24,GPIO.HIGH)
-
 
 ## here starts the sound part !!
 
@@ -30,9 +28,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.IN)
 
 def callback(pin):
-    # just turn white light on
-    GPIO.output(17,GPIO.HIGH), GPIO.output(22,GPIO.HIGH), GPIO.output(24,GPIO.HIGH)
-
     if GPIO.input(pin):
         print "It's gettign to noisy!"
         # white light goes off
@@ -50,7 +45,11 @@ def callback(pin):
                 time.sleep(.5)
                 GPIO.output(17,GPIO.LOW)
                 time.sleep(.5)
-        return
+        continue
+
+print "second white light"
+# just turn white light on
+GPIO.output(17,GPIO.HIGH), GPIO.output(22,GPIO.HIGH), GPIO.output(24,GPIO.HIGH)
 
 GPIO.add_event_detect(pin, GPIO.BOTH, bouncetime=100) # let us know when the pin goes High or LOW
 GPIO.add_event_callback(pin, callback) # assign function to GPIO PIN, Run function on change
