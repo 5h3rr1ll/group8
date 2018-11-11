@@ -6,8 +6,6 @@ import RPi.GPIO as GPIO
 import time
 from coware import lightCheck
 
-lightCheck()
-
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 # red light
