@@ -41,12 +41,11 @@ def callback(channel):
         # turn yellow light off
         os.system("pigs p 17 0")
         os.system("pigs p 22 0")
-        for _ in range(5):
+        for _ in range(10):
                 GPIO.output(17,GPIO.HIGH)
-                time.sleep(.2)
+                time.sleep(.5)
                 GPIO.output(17,GPIO.LOW)
-                time.sleep(.2)
-                return
+                time.sleep(.5)
 
 
 GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=100) # let us know when the pin goes High or LOW
