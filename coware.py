@@ -17,39 +17,24 @@ GPIO.setup(24,GPIO.OUT)
 def lightCheck():
     print"GREEN Light"
     GPIO.output(17,GPIO.HIGH)
-    time.sleep(.5)
+    time.sleep(1)
     GPIO.output(17,GPIO.LOW)
     print"RED Light"
     GPIO.output(22,GPIO.HIGH)
-    time.sleep(.5)
+    time.sleep(1)
     GPIO.output(22,GPIO.LOW)
     print"BLUE Light"
     GPIO.output(24,GPIO.HIGH)
-    time.sleep(.5)
+    time.sleep(1)
     GPIO.output(24,GPIO.LOW)
-    print"WHITE Light"
-    GPIO.output(17,GPIO.HIGH)
-    GPIO.output(22,GPIO.HIGH)
-    GPIO.output(24,GPIO.HIGH)
-    time.sleep(.5)
-    GPIO.output(17,GPIO.LOW)
-    GPIO.output(22,GPIO.LOW)
-    GPIO.output(24,GPIO.LOW)
-    print"YELLOW Light"
-    os.system("pigs p 17 255")
-    os.system("pigs p 22 80")
-    time.sleep(.5)
-    os.system("pigs p 17 0")
-    os.system("pigs p 22 0")
 
 def menu():
 
     answer = 0
 
     print "1. Sound-Sensor-Version"
-    print "2. Szenario-Version"
-    print "3. Random input-Version"
-    print "4. Exit\n"
+    print "2. Funny colores"
+    print "3. Exit\n"
 
     options = [1,2,3,4]
 
@@ -57,14 +42,12 @@ def menu():
         answer = int(raw_input("Press 1, 2, 3 or 4 and hit ENTER: "))
 
     if answer == 1:
-        os.system("python coware.py")
+        os.system("python soundsensor.py")
         menu()
     elif answer == 2:
-        os.system("python cowareV2.py")
-        print "2"
+        os.system("python fading.py")
         menu()
     elif answer == 3:
-        os.system("python fading.py")
         print "2"
         menu()
 

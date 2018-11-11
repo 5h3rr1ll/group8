@@ -1,10 +1,11 @@
 #!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 
-
 import RPi.GPIO as GPIO
 import time
 import os
+
+os.system("clear")
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
