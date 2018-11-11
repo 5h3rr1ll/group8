@@ -42,8 +42,10 @@ def callback(channel):
         os.system("pigs p 17 0")
         os.system("pigs p 22 0")
         for _ in range(5):
-                GPIO.output(22,GPIO.HIGH)
-                GPIO.output(22,GPIO.LOW)
+                GPIO.output(17,GPIO.HIGH)
+                time.sleep(.2)
+                GPIO.output(17,GPIO.LOW)
+                time.sleep(.2)
                 return
 
 
