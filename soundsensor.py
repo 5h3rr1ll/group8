@@ -30,7 +30,7 @@ GPIO.setup(channel, GPIO.IN)
 
 def callback(channel):
 	if GPIO.input(channel):
-		print "chanell"
+		print chanell
 		GPIO.output(17,GPIO.LOW)
 		GPIO.output(22,GPIO.HIGH)
 	else:
