@@ -22,14 +22,19 @@ GPIO.output(17,GPIO.HIGH), GPIO.output(22,GPIO.HIGH), GPIO.output(24,GPIO.HIGH)
 # just turn white light on
 os.system("")
 
-## here starts the sound part
-#GPIO SETUP
-channel = 4
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(channel, GPIO.IN)
 
-def callback(channel):
-    if GPIO.input(channel):
+
+## here starts the sound part !!
+
+#GPIO SETUP, pin in the pin on th Raspberry Pi, in this case the GPIO 4
+pin = 4
+GPIO.setmode(GPIO.BCM)
+# GPIO.IN means that the Raspberry Pi get's an input instead of giving somethign out
+# on that pin
+GPIO.setup(pin, GPIO.IN)
+
+def callback(pin):
+    if GPIO.input(pin):
         print "It's gettign to noisy!"
         # white light goes off
         GPIO.output(17,GPIO.LOW), GPIO.output(22,GPIO.LOW), GPIO.output(24,GPIO.LOW)
@@ -46,10 +51,10 @@ def callback(channel):
                 time.sleep(.5)
                 GPIO.output(17,GPIO.LOW)
                 time.sleep(.5)
+        return
 
-
-GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=100) # let us know when the pin goes High or LOW
-GPIO.add_event_callback(channel, callback) # assign function to GPIO PIN, Run function on change
+GPIO.add_event_detect(pin, GPIO.BOTH, bouncetime=100) # let us know when the pin goes High or LOW
+GPIO.add_event_callback(pin, callback) # assign function to GPIO PIN, Run function on change
 
 # infinite loop
 while True:
