@@ -5,6 +5,8 @@ import os
 import RPi.GPIO as GPIO
 import time
 
+os.system("sudo pigpiod")
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 # red light
