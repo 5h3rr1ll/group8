@@ -47,6 +47,7 @@ def callback(pin):
                 time.sleep(.5)
                 GPIO.output(17,GPIO.LOW)
                 time.sleep(.5)
+        time.sleep(1)
         turnWhiteLightOn()
 
 # just turn white light on
